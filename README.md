@@ -1,24 +1,13 @@
-# README
+# To Do list
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto de lista de tarefas utilizando
+ - Ruby 3
+ - Rails 6
+ - PostgreSQL
+ - BootStrap
 
-Things you may want to cover:
+baseado em módulo do curso:
 
-* Ruby version
+https://www.lucascaton.com.br/cursos/cplc
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://github.com/lucascaton
