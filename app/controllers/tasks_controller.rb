@@ -13,23 +13,25 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    message = "Task was successfully created."
-    return redirect_to task_url(@task), notice: message if @task.save
+    message = "Tarefa criada com sucesso."
+    return redirect_to tasks_path, notice: message if @task.save
 
+    flash.now[:alert] = @task.errors.full_messages.to_sentence
     render :new, status: :unprocessable_entity
   end
 
   def update
-    message = "Task was successfully updated."
-    return redirect_to task_url(@task), notice: message if @task.update(task_params)
+    message = "Tarefa atualizada com sucesso."
+    return redirect_to tasks_path, notice: message if @task.update(task_params)
 
+    flash.now[:alert] = @task.errors.full_messages.to_sentence
     render :edit, status: :unprocessable_entity
   end
 
   def destroy
     @task.destroy
 
-    redirect_to tasks_url, notice: "Task was successfully destroyed."
+    redirect_to tasks_url, notice: "Tarefa removida com sucesso."
   end
 
   private
