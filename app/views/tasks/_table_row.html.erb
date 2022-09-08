@@ -1,5 +1,5 @@
-<tr class="border-top">
-  <td>
+<tr class="<%= task.is_parent? ? 'border-top' : '' %>">
+  <td class="<%= task.is_subtask? ? 'ps-5' : '' %>">
     <span class='text-<%= symbol(task).color %>'><%= symbol(task).icon %></span>
     <% mute_task = task.done?%>
     <%= mute_task ? '<s class="text-muted">'.html_safe : '' %>
@@ -7,7 +7,10 @@
     <%= mute_task ? '</s>'.html_safe : '' %>
   </td>
   <td><%= l task.due_date %></td>
-  <td>
+  <td class="text-end pe-0">
+    <% if task.is_parent? %>
+      <%= link_to '+ Sub-tarefa', new_task_path(parent_id: task.id), class: 'btn btn-success btn-sm' %>
+    <% end %>
     <%= link_to 'Editar', edit_task_path(task), class: 'btn btn-secondary btn-sm' %>
     <%= link_to 'Apagar', task, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Confirmar ação?' } %>
   </td>
